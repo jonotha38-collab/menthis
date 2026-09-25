@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentis - Co-piloto Clínico</title>
+    <!-- Favicon (Ícone da aba do navegador) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated background wavy lines (evidentes e em movimento contínuo) -->
+    <div class="bg-lines" aria-hidden="true">
+        <svg viewBox="0 0 1440 1000" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path d="M-60 -80 C 180 240, 20 540, 200 980 C 290 1200, 160 1400, 250 1700" stroke="rgba(110, 68, 255, 0.32)" stroke-width="2.2" class="wave-line wave-1"/>
+            <path d="M120 -80 C 320 280, 140 620, 360 980 C 470 1160, 310 1360, 420 1700" stroke="rgba(124, 58, 237, 0.24)" stroke-width="1.8" class="wave-line wave-2"/>
+            <path d="M380 -80 C 580 200, 360 620, 600 980 C 720 1180, 520 1380, 660 1700" stroke="rgba(110, 68, 255, 0.30)" stroke-width="2.2" class="wave-line wave-3"/>
+            <path d="M720 -80 C 920 320, 680 520, 900 980 C 1020 1240, 820 1420, 960 1700" stroke="rgba(139, 92, 246, 0.28)" stroke-width="2" class="wave-line wave-4"/>
+            <path d="M1060 -80 C 1260 180, 1020 680, 1280 980 C 1400 1140, 1210 1360, 1340 1700" stroke="rgba(110, 68, 255, 0.34)" stroke-width="2.2" class="wave-line wave-5"/>
+            <path d="M1320 -80 C 1480 300, 1260 660, 1480 980 C 1580 1180, 1410 1380, 1520 1700" stroke="rgba(124, 58, 237, 0.26)" stroke-width="2" class="wave-line wave-6"/>
+        </svg>
+    </div>
+
+    <header class="header">
+        <div class="container header__content">
+            <a href="#" class="logo" aria-label="Mentis Home" title="Mentis">
+                <img src="assets/images/logo.png" alt="Mentis Logo" class="logo__img">
+            </a>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#paradoxo" class="nav__link">O Paradoxo</a></li>
+                    <li class="nav__item"><a href="#arquitetura" class="nav__link">Arquitetura Clínica</a></li>
+                    <li class="nav__item"><a href="#bioetico" class="nav__link">Escudo Bioético</a></li>
+                    <li class="nav__item"><a href="#engenharia" class="nav__link">Engenharia</a></li>
+                    <li class="nav__item"><a href="#maturidade" class="nav__link">Maturidade</a></li>
+                </ul>
+            </nav>
+            <button class="btn btn--primary">Pedir acesso</button>
+        </div>
+    </header>
+
+    <section class="hero" id="sobre">
+        <div class="container hero__content">
+            <div class="hero__text">
+                <div class="status-bubble status-bubble--purple">
+                    <span class="status-bubble__dot"></span> Em fase de acesso antecipado
+                </div>
+                <h1 class="hero__title">Seja um dos primeiros a usar o Mentis</h1>
+                <p class="hero__description">
+                    O co-piloto clínico que organiza prontuários, transcreve sessões e recupera o histórico do paciente — para você ter mais tempo para a escuta.
+                </p>
+                <form class="email-form hero__form" id="hero-form">
+                    <label for="hero-email" class="visually-hidden">Email para acesso antecipado</label>
+                    <div class="email-form__wrapper">
+                        <input type="email" id="hero-email" placeholder="seu@email.com" class="email-form__input" required>
+                        <button type="submit" class="btn btn--dark">Pedir acesso</button>
+                    </div>
+                </form>
+                <div class="waiting-list">
+                    <div class="avatar-group">
+                        <span class="avatar avatar--1"></span>
+                        <span class="avatar avatar--2"></span>
+                        <span class="avatar avatar--3"></span>
+                        <span class="avatar avatar--4"></span>
+                    </div>
+                    <p class="waiting-list__text">Mais de 300 psicólogos na lista de espera</p>
+                </div>
+            </div>
+            
+            <!-- Mockup iPhone X com email maria123@teste.com e botão animado -->
+            <div class="hero__image">
+                <div class="phone-mockup">
+                    <div class="iphone-x">
+                        <!-- Botões laterais físicos do iPhone X -->
+                        <div class="iphone-x__btn-silent"></div>
+                        <div class="iphone-x__btn-volup"></div>
+                        <div class="iphone-x__btn-voldown"></div>
+                        <div class="iphone-x__btn-power"></div>
+                        
+                        <!-- Moldura externa do iPhone X -->
+                        <div class="iphone-x__frame">
+                            <!-- Tela interna do iPhone X -->
+                            <div class="iphone-x__screen">
+                                <!-- Notch característico do iPhone X -->
+                                <div class="iphone-x__notch">
+                                    <div class="iphone-x__speaker"></div>
+                                    <div class="iphone-x__camera"></div>
+                                </div>
+
+                                <!-- Barra de Status -->
+                                <div class="phone-screen__topbar">
+                                    <span class="phone-screen__time">9:41</span>
+                                    <span class="phone-screen__icons">
+                                        <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor" class="status-icon"><rect x="0.5" y="8" width="2.5" height="3" rx="0.5"/><rect x="4.5" y="5.5" width="2.5" height="5.5" rx="0.5"/><rect x="8.5" y="3" width="2.5" height="8" rx="0.5"/><rect x="12.5" y="0.5" width="2.5" height="10.5" rx="0.5"/></svg>
+                                        <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor" class="status-icon"><path d="M7.5 3C9.8 3 11.8 3.9 13.3 5.4L14.7 4C12.8 2.2 10.3 1 7.5 1C4.7 1 2.2 2.2 0.3 4L1.7 5.4C3.2 3.9 5.2 3 7.5 3ZM7.5 6.5C8.9 6.5 10.1 7.1 11 8L12.4 6.6C11.1 5.4 9.4 4.5 7.5 4.5C5.6 4.5 3.9 5.4 2.6 6.6L4 8C4.9 7.1 6.1 6.5 7.5 6.5ZM7.5 9.5C8.1 9.5 8.5 9.9 8.5 10.5C8.5 11.1 8.1 11.5 7.5 11.5C6.9 11.5 6.5 11.1 6.5 10.5C6.5 9.9 6.9 9.5 7.5 9.5Z"/></svg>
+                                        100%
+                                    </span>
+                                </div>
+                                
+                                <!-- Conteúdo interno com email maria123@teste.com -->
+                                <div class="phone-login">
+                                    <div class="login-brand">
+                                        <div class="login-brand__icon-wrap">
+                                            <img src="assets/images/mentis-infinity.png" alt="Mentis" class="login-brand__icon">
+                                        </div>
+                                        <h2 class="login-brand__title">Mentis</h2>
+                                        <p class="login-brand__subtitle">Sua Clínica Inteligente</p>
+                                    </div>
+
+                                    <form class="login-form" onsubmit="event.preventDefault();">
+                                        <div class="login-form__group">
+                                            <label class="login-form__label">E-mail</label>
+                                            <input type="email" class="login-form__input" value="maria123@teste.com" readonly>
+                                        </div>
+
+                                        <div class="login-form__group">
+                                            <label class="login-form__label">Senha</label>
+                                            <input type="password" class="login-form__input" value="123456789012" readonly>
+                                        </div>
+
+                                        <div class="login-form__forgot">
+                                            <a href="#" class="login-form__forgot-link">Esqueci minha senha</a>
+                                        </div>
+
+                                        <!-- Botão que se movimenta ao passar o mouse -->
+                                        <button type="button" class="login-btn-entrar">Entrar</button>
+
+                                        <p class="login-footer-text">
+                                            Ainda não tem uma conta? <a href="#" class="login-footer-link">Registre-se</a>
+                                        </p>
+                                    </form>
+                                </div>
+
+                                <!-- Barra Home Indicator clássica do iPhone X -->
+                                <div class="iphone-x__home-indicator"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== O PARADOXO (Diagnóstico de Mercado) ===================== -->
+    <section class="pain-section" id="paradoxo">
+        <div class="container">
+            <div class="section-tagline-wrapper">
+                <span class="tagline-badge">
+                    <span class="tagline-badge__dot"></span> Diagnóstico de Mercado
+                </span>
+            </div>
+            <h2 class="section-title section-title--centered">As 3 grandes dores da clínica moderna e como o <em class="text-accent">Mentis</em> as resolve</h2>
+            <p class="section-description section-description--centered">
+                Transformamos horas gastas em tarefas mecânicas e notas dispersas em clareza longitudinal e serenidade terapêutica.
+            </p>
+            <div class="feature-cards">
+                <div class="card pain-card">
+                    <span class="category-box category-box--danger">Dor Crônica 01</span>
+                    <h4 class="card__title">Sobrecarga Burocrática</h4>
+                    <p class="card__description">
+                        Até 2h diárias consumidas transcrevendo anotações à mão, preenchendo formulários e gerando cobranças após o atendimento.
+                    </p>
+                    <div class="solution-box">
+                        <p class="solution-box__title">&check; Solução Mentis</p>
+                        <p class="solution-box__text">Registro assistido com transcrição Whisper (60min processados em ~15s), síntese clínica editável e evolução estruturada em 1 clique.</p>
+                    </div>
+                </div>
+                <div class="card pain-card">
+                    <span class="category-box category-box--warning">Dor Crônica 02</span>
+                    <h4 class="card__title">Fragmentação da Memória</h4>
+                    <p class="card__description">
+                        Meses de sessões acumuladas em cadernos ou PDFs avulsos. Dificuldade crítica para correlacionar queixas de 6 meses atrás.
+                    </p>
+                    <div class="solution-box">
+                        <p class="solution-box__title">&check; Solução Mentis</p>
+                        <p class="solution-box__text">Memória Longitudinal em Camadas: Contexto Âncora (400 palavras essenciais), Janela Deslizante (3 últimas sessões) e busca semântica em tempo real.</p>
+                    </div>
+                </div>
+                <div class="card pain-card">
+                    <span class="category-box category-box--danger">Dor Crônica 03</span>
+                    <h4 class="card__title">O Risco das IAs Genéricas</h4>
+                    <p class="card__description">
+                        Uso inseguro de chatbots públicos sem salvaguardas éticas, alucinando diretrizes clínicas e expondo dados sensíveis de pacientes.
+                    </p>
+                    <div class="solution-box">
+                        <p class="solution-box__title">&check; Solução Mentis</p>
+                        <p class="solution-box__text">Motor com contrato de evidências, Escudo Anti-WEIRD adaptado ao Brasil, triagem ativa de Red Flags e anonimização obrigatória de PII.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ARQUITETURA CLÍNICA (Human-in-the-Loop) ===================== -->
+    <section class="philosophy-section" id="arquitetura">
+        <div class="container">
+            <div class="section-tagline-wrapper">
+                <span class="tagline-badge">
+                    <span class="tagline-badge__dot"></span> Filosofia &amp; Arquitetura
+                </span>
+            </div>
+            <h2 class="section-title section-title--centered">Human-in-the-Loop: A IA como <em class="text-accent">amplificadora</em>, nunca substituta</h2>
+            <p class="section-description section-description--centered">
+                O Mentis não faz diagnósticos autônomos e não assume o papel do terapeuta. Todo o raciocínio é ancorado em evidências e passa pela deliberação e validação do profissional.
+            </p>
+            <div class="feature-cards">
+                <div class="card icon-card">
+                    <div class="icon-badge icon-badge--purple">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4c0 1.5.8 2.4 1.5 3.2C10.2 10 11 11 11 13v1H9a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2h-2v-1c0-2 .8-3 1.5-3.8.7-.8 1.5-1.7 1.5-3.2a4 4 0 0 0-4-4Z"/><path d="M9 21h6"/></svg>
+                    </div>
+                    <h4 class="card__title">Soberania Clínica Integral</h4>
+                    <p class="card__description">
+                        A responsabilidade técnica e diagnóstica pertence 100% ao psicólogo ou médico assistente. O Mentis estrutura hipóteses e contextualiza dados clínicos.
+                    </p>
+                    <p class="card__note card__note--purple">Resolução CFP 001/2009 &amp; CFM</p>
+                </div>
+                <div class="card icon-card">
+                    <div class="icon-badge icon-badge--green">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+                    </div>
+                    <h4 class="card__title">Compliance &amp; Privacidade First</h4>
+                    <p class="card__description">
+                        Anonimização de identificadores sensíveis (PII) antes de qualquer chamada a LLMs. Seus dados nunca são utilizados para treino de modelos públicos.
+                    </p>
+                    <p class="card__note card__note--green">LGPD &amp; Criptografia AES-256</p>
+                </div>
+                <div class="card icon-card">
+                    <div class="icon-badge icon-badge--blue">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
+                    </div>
+                    <h4 class="card__title">Base em Evidências Rigorosa</h4>
+                    <p class="card__description">
+                        RAG estruturado com manuais clínicos (DSM-5, SCID-5, CID-11) e literatura padrão ouro via Parent-Child Retrieval sem alucinações genéricas.
+                    </p>
+                    <p class="card__note card__note--blue">Parent-Child Retrieval RAG</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ESCUDO BIOÉTICO (Proteção & Bioética) ===================== -->
+    <section class="bioethics-section" id="bioetico">
+        <div class="container">
+            <div class="section-tagline-wrapper">
+                <span class="tagline-badge">
+                    <span class="tagline-badge__dot"></span> Proteção &amp; Bioética
+                </span>
+            </div>
+            <h2 class="section-title section-title--centered">Privacidade não é opcional: <em class="text-accent">Compliance-First</em> por arquitetura</h2>
+            <p class="section-description section-description--centered">
+                Desenvolvido sob rigorosas diretrizes de sigilo profissional para que você atenda com total tranquilidade jurídica e ética.
+            </p>
+            <div class="alert-box">
+                <div class="alert-box__icon">&#9888;</div>
+                <div class="alert-box__body">
+                    <h4 class="alert-box__title">Triagem Ativa de Red Flags e Risco Iminente</h4>
+                    <p class="alert-box__text">
+                        O Mentis avalia silenciosamente a transcrição em busca de marcadores agudos de ideação suicida, automutilação ou risco para terceiros. Havendo detecção, emite alerta prioritário ao terapeuta e disponibiliza imediatamente os protocolos de contenção e suporte (CVV 188 / CAPS / rede de apoio familiar).
+                    </p>
+                    <div class="alert-box__tags">
+                        <span class="pill-tag pill-tag--danger">Protocolo CVV 188 Integrado</span>
+                        <span class="pill-tag pill-tag--danger">Notificação Discreta &amp; Sem Alarde</span>
+                        <span class="pill-tag pill-tag--danger">Soberania Decisória do Terapeuta</span>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-cards feature-cards--top-gap">
+                <div class="card icon-card">
+                    <div class="icon-badge icon-badge--purple">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9 8 11 4.6-2 8-6 8-11V5l-8-3Z"/></svg>
+                    </div>
+                    <h4 class="card__title">Anonimização Pré-Envio de PII</h4>
+                    <p class="card__description">
+                        Nomes de pessoas, CPFs, telefones, endereços e locais citados durante o diálogo são ofuscados localmente via regex &amp; NER no dispositivo antes de qualquer processamento por inteligência artificial.
+                    </p>
+                    <div class="code-box">"João da Silva, CPF 123..." &rarr; "[PACIENTE_A], CPF [OCULTADO]..."</div>
+                </div>
+                <div class="card icon-card">
+                    <div class="icon-badge icon-badge--blue">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg>
+                    </div>
+                    <h4 class="card__title">Escudo Anti-WEIRD Adaptado ao Brasil</h4>
+                    <p class="card__description">
+                        Modelos de IA americanos falham ao avaliar populações ocidentais genéricas (WEIRD). Nosso motor é calibrado para a linguagem, gírias regionais e especificidades psicossociais da realidade brasileira.
+                    </p>
+                    <div class="code-box">Compreensão contextual de disparidades socioculturais</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ENGENHARIA (Engenharia Clínica de Precisão + Modal Dual-Space) ===================== -->
+    <section class="engineering-section" id="engenharia">
+        <div class="container">
+            <div class="section-tagline-wrapper">
+                <span class="tagline-badge">
+                    <span class="tagline-badge__dot"></span> Engenharia Clínica de Precisão
+                </span>
+            </div>
+            <h2 class="section-title section-title--centered">Arquitetura pioneira pensada para a <em class="text-accent">mente humana</em></h2>
+            <p class="section-description section-description--centered">
+                Como estruturamos os dados clínicos para garantir retenção de contexto de longo prazo e segurança bioética absoluta.
+            </p>
+            <div class="feature-cards">
+                <div class="card icon-card">
+                    <span class="category-box">Camada 1 &middot; Síntese Essencial</span>
+                    <h4 class="card__title">Contexto Âncora (400 palavras)</h4>
+                    <p class="card__description">
+                        Destilação viva e permanente dos traços nucleares do paciente: diagnóstico sindrômico, vínculos relacionais de apoio, trauma raiz e objetivos terapêuticos.
+                    </p>
+                    <div class="code-box">Sempre injetado no prompt de raciocínio</div>
+                </div>
+                <div class="card icon-card">
+                    <span class="category-box">Camada 2 &middot; Continuidade Imediata</span>
+                    <h4 class="card__title">Janela Deslizante (3 Sessões)</h4>
+                    <p class="card__description">
+                        Acompanhamento dinâmico do estado afetivo recente, tarefas de casa acordadas e resposta a intervenções das últimas semanas.
+                    </p>
+                    <div class="code-box">Continuidade sem esquecimento de metas</div>
+                </div>
+                <div class="card icon-card">
+                    <span class="category-box">Camada 3 &middot; Recuperação Semântica</span>
+                    <h4 class="card__title">Parent-Child Retrieval</h4>
+                    <p class="card__description">
+                        Indexação vetorial em sub-blocos precisos que puxam o parágrafo clínico inteiro original, evitando perda de nuances semânticas contextuais.
+                    </p>
+                    <div class="code-box">Precisão contextual sem alucinação</div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Modal Dual-Space: Espaço Clínico separado do Administrativo</h3>
+                <p class="section-description section-description--centered">
+                    Para preservar o foco terapêutico pleno, separamos cirurgicamente o raciocínio clínico das pendências financeiras e de gestão.
+                </p>
+                <div class="dual-space-grid">
+                    <div class="dual-card dual-card--purple">
+                        <div class="dual-card__header">
+                            <div class="icon-badge icon-badge--purple">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="dual-card__title">Espaço de Raciocínio Clínico</h4>
+                                <p class="dual-card__subtitle">Privado, focado na escuta e livre de ruídos operacionais</p>
+                            </div>
+                        </div>
+                        <ul class="check-list">
+                            <li>Transcrição áudio-clínica em tempo real</li>
+                            <li>Evoluções estruturadas (S.O.A.P. ou narrativo livre)</li>
+                            <li>Análise longitudinal de queixas e progressão de sintomas</li>
+                            <li>Detecção precoce e silenciosa de Red Flags éticas</li>
+                        </ul>
+                    </div>
+                    <div class="dual-card dual-card--green">
+                        <div class="dual-card__header">
+                            <div class="icon-badge icon-badge--green">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v3M16 4v3"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="dual-card__title">Espaço Administrativo &amp; Operacional</h4>
+                                <p class="dual-card__subtitle">Gestão de consultório com automação sem atrito</p>
+                            </div>
+                        </div>
+                        <ul class="check-list">
+                            <li>Lembretes automáticos via WhatsApp (~40% no-show)</li>
+                            <li>Conciliação financeira e emissão de recibos PIX</li>
+                            <li>Sincronização bidirecional com Google Calendar</li>
+                            <li>Controle de faturamento mensal e previsibilidade de caixa</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== MATURIDADE (Status Tecnológico) ===================== -->
+    <section class="maturity-section" id="maturidade">
+        <div class="container">
+            <div class="section-tagline-wrapper">
+                <span class="tagline-badge">
+                    <span class="tagline-badge__dot"></span> Status Tecnológico
+                </span>
+            </div>
+            <h2 class="section-title section-title--centered">Maturidade do Núcleo Clínico &amp; Próxima Fronteira</h2>
+            <p class="section-description section-description--centered">
+                Transparência total: veja o que já está homologado e o que chega nos próximos ciclos.
+            </p>
+            <div class="maturity-table-wrapper">
+                <table class="maturity-table">
+                    <thead>
+                        <tr>
+                            <th>Módulo Tecnológico</th>
+                            <th>Arquitetura &amp; Algoritmo</th>
+                            <th>Status de Maturidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="maturity-table__module">Banco Vetorial &amp; RAG</td>
+                            <td>Indexação semântica com Parent-Child Retrieval (DSM-5 e SCID-5)</td>
+                            <td><span class="pill-status pill-status--success">&bull; 100% Implementado</span></td>
+                        </tr>
+                        <tr>
+                            <td class="maturity-table__module">Transcrição Áudio-Clínica</td>
+                            <td>OpenAI Whisper Hi-Fi processado via Edge Functions criptografadas</td>
+                            <td><span class="pill-status pill-status--success">&bull; 100% Implementado</span></td>
+                        </tr>
+                        <tr>
+                            <td class="maturity-table__module">Motor de Anonimização PII</td>
+                            <td>Camada de ofuscação pré-envio de dados identificáveis de pacientes</td>
+                            <td><span class="pill-status pill-status--success">&bull; 100% Implementado</span></td>
+                        </tr>
+                        <tr>
+                            <td class="maturity-table__module">Modal Dual-Space</td>
+                            <td>Divisão estrita de contexto clínico (escuta) e tarefas de consultório</td>
+                            <td><span class="pill-status pill-status--success">&bull; 100% Implementado</span></td>
+                        </tr>
+                        <tr>
+                            <td class="maturity-table__module">Contrato de Evidências</td>
+                            <td>Schema rígido de deliberação antes de qualquer sugestão diagnóstica</td>
+                            <td><span class="pill-status pill-status--success">&bull; 100% Implementado</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== IMPACTO SISTÊMICO (Proposta de Valor) ===================== -->
+    <section class="impact-section" id="impacto">
+        <div class="container">
+            <div class="section-tagline-wrapper">
+                <span class="tagline-badge">
+                    <span class="tagline-badge__dot"></span> Impacto Sistêmico
+                </span>
+            </div>
+            <h2 class="section-title section-title--centered">Proposta de Valor Consolidada em <em class="text-accent">4 Dimensões</em></h2>
+            <p class="section-description section-description--centered">
+                Projetado para elevar a eficiência da clínica mantendo a dignidade e a sensibilidade do encontro humano.
+            </p>
+            <div class="impact-grid">
+                <div class="card icon-card">
+                    <div class="icon-badge icon-badge--purple">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+                    </div>
+                    <h4 class="card__title">1. Dimensão Clínica</h4>
+                    <p class="card__description">
+                        Recuperação rápida de histórico em segundos, raciocínio diagnóstico balizado por manuais e detecção de riscos sem dispersar a atenção do terapeuta.
+                    </p>
+                </div>
+                <div class="card icon-card">
+                    <div class="icon-badge icon-badge--blue">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                    </div>
+                    <h4 class="card__title">2. Dimensão Operacional</h4>
+                    <p class="card__description">
+                        Economia de até 10 horas semanais de digitação e burocracia, redução de faltas via WhatsApp automático e fechamento financeiro imediato.
+                    </p>
+                </div>
+                <div class="card icon-card">
+                    <div class="icon-badge icon-badge--green">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5"/></svg>
+                    </div>
+                    <h4 class="card__title">3. Dimensão Tecnológica</h4>
+                    <p class="card__description">
+                        Arquitetura RAG de ponta com Parent-Child Retrieval, memórias em camadas (Âncora + Deslizante) e execução rápida em nuvem segura.
+                    </p>
+                </div>
+                <div class="card icon-card">
+                    <div class="icon-badge icon-badge--amber">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 3.8 8.5 9 9 5.2-.5 9-4 9-9V7l-9-5Z"/></svg>
+                    </div>
+                    <h4 class="card__title">4. Dimensão Ética</h4>
+                    <p class="card__description">
+                        Conformidade irrestrita com LGPD e resoluções dos conselhos de classe (CFP/CFM), sem treinamento de IA com registros de pacientes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="fluxo">
+        <div class="container">
+            <!-- Caixa branca na palavra de destaque -->
+            <div class="section-tagline-wrapper">
+                <span class="tagline-badge">
+                    <span class="tagline-badge__dot"></span> Fluxo Clínico
+                </span>
+            </div>
+            <h2 class="section-title section-title--centered">Do registro à decisão, <em class="text-accent">sem atrito</em></h2>
+            <p class="section-description section-description--centered">
+                A IA organiza e sugere. A decisão clínica é sempre sua — com alertas de risco que nunca passam despercebidos.
+            </p>
+            <div class="flow-steps">
+                <div class="card flow-step">
+                    <div class="flow-step__top">
+                        <span class="flow-step__number">1</span>
+                        <span class="flow-step__meta">50 min</span>
+                    </div>
+                    <h4 class="card__title">Sessão</h4>
+                    <p class="card__description">Acolhimento humanizado sem anotações ansiosas que atrapalham o vínculo.</p>
+                    <div class="flow-step__footer">&#128274; Gravação criptografada</div>
+                </div>
+                <div class="card flow-step">
+                    <div class="flow-step__top">
+                        <span class="flow-step__number">2</span>
+                        <span class="flow-step__meta">~15 seg</span>
+                    </div>
+                    <h4 class="card__title">Transcrição</h4>
+                    <p class="card__description">Áudio clínico convertido em notas estruturadas com pontuação precisa.</p>
+                    <div class="flow-step__footer">&#9889; Processamento instantâneo</div>
+                </div>
+                <div class="card flow-step">
+                    <div class="flow-step__top">
+                        <span class="flow-step__number">3</span>
+                        <span class="flow-step__meta">Automático</span>
+                    </div>
+                    <h4 class="card__title">Organização</h4>
+                    <p class="card__description">Síntese longitudinal, identificação de hipóteses e triagem de riscos.</p>
+                    <div class="flow-step__footer">&#128737; Triagem ética de alerta</div>
+                </div>
+                <div class="card flow-step">
+                    <div class="flow-step__top">
+                        <span class="flow-step__number">4</span>
+                        <span class="flow-step__meta">Revisão ~2 min</span>
+                    </div>
+                    <h4 class="card__title">Prontuário</h4>
+                    <p class="card__description">Evolução pronta para validação, edição pessoal e assinatura ética.</p>
+                    <div class="flow-step__footer">&check; Soberania profissional</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="find-your-way">
+        <div class="container">
+            <div class="find-your-way__content">
+                <div class="find-your-way__text">
+                    <!-- Caixa branca na palavra de destaque -->
+                    <div class="section-tagline-wrapper section-tagline-wrapper--left">
+                        <span class="tagline-badge">
+                            <span class="tagline-badge__dot"></span> Busca Inteligente
+                        </span>
+                    </div>
+                    <h3 class="section-title">Encontre do jeito que você lembra</h3>
+                    <p class="section-description">
+                        Pergunte "o que a paciente disse sobre o pai em março" e o Mentis recupera o trecho certo — sem procurar em meses de registros soltos.
+                    </p>
+                </div>
+                <div class="mock-ui-wrapper">
+                    <div class="mock-ui mock-ui--search">
+                        <div class="mock-ui__top">
+                            <p class="mock-ui__title">Buscar</p>
+                            <span class="category-box category-box--sm">Recuperação Semântica</span>
+                        </div>
+                        <p class="mock-ui__query">"a sessão sobre luto, em abril"</p>
+                        <div class="mock-ui__result">
+                            <p class="mock-ui__date">12 abr &bull; Sessão 14</p>
+                            <p class="mock-ui__snippet">"...trouxe pela primeira vez a perda do pai, com muito choro contido..."</p>
+                        </div>
+                        <div class="mock-ui__dots">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="all-the-flow">
+        <div class="container">
+            <div class="all-the-flow__content">
+                <div class="all-the-flow__buttons">
+                    <button class="btn-flow"><span class="flow-dot flow-dot--purple"></span> Prontuário</button>
+                    <button class="btn-flow"><span class="flow-dot flow-dot--purple"></span> Agenda</button>
+                    <button class="btn-flow"><span class="flow-dot flow-dot--purple"></span> WhatsApp</button>
+                    <button class="btn-flow"><span class="flow-dot flow-dot--purple"></span> Financeiro</button>
+                    <button class="btn-flow"><span class="flow-dot flow-dot--purple"></span> Áudio</button>
+                    <button class="btn-flow"><span class="flow-dot flow-dot--purple"></span> DSM-5 / SCID-5</button>
+                </div>
+                <div class="all-the-flow__text">
+                    <!-- Caixa branca na palavra de destaque -->
+                    <div class="section-tagline-wrapper section-tagline-wrapper--left">
+                        <span class="tagline-badge">
+                            <span class="tagline-badge__dot"></span> Central Integrada
+                        </span>
+                    </div>
+                    <h3 class="section-title">Um lugar, todo o fluxo</h3>
+                    <p class="section-description">
+                        Prontuário, agenda, financeiro e lembretes por WhatsApp — sem alternar entre cinco aplicativos diferentes durante o atendimento.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta" id="contato">
+        <div class="container final-cta__content">
+            <!-- Caixa branca na palavra de destaque -->
+            <div class="section-tagline-wrapper">
+                <span class="tagline-badge">
+                    <span class="tagline-badge__dot"></span> Acesso Prioritário
+                </span>
+            </div>
+            <h2 class="section-title section-title--centered">Sua ética e seus pacientes merecem esse nível de cuidado</h2>
+            <form class="email-form final-cta__form" id="final-cta-form">
+                <label for="final-cta-email" class="visually-hidden">Email para acesso antecipado</label>
+                <div class="email-form__wrapper">
+                    <input type="email" id="final-cta-email" placeholder="seu@email.com" class="email-form__input" required>
+                    <button type="submit" class="btn btn--primary">Pedir acesso</button>
+                </div>
+            </form>
+            <p class="final-cta__note">Sem custo durante o acesso antecipado. Sem cartão de crédito.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer__content">
+            <div class="footer__brand">
+                <a href="#" class="logo" aria-label="Mentis Home">
+                    <img src="assets/images/logo.png" alt="Mentis Logo" class="logo__img logo__img--footer">
+                </a>
+                <p class="footer__description">
+                    Co-piloto de inteligência clínica e gestão para psicólogos, psicoterapeutas e clínicas de saúde mental.
+                </p>
+                <p class="footer__dpo">
+                    <strong>Encarregado de Dados (DPO):</strong><br>
+                    [Nome do Encarregado] &middot; <a href="mailto:dpo@mentis.com.br" class="footer__link">dpo@mentis.com.br</a>
+                </p>
+            </div>
+            <div class="footer__links-group">
+                <div class="footer__links-column">
+                    <h5 class="footer__links-title">PRODUTO</h5>
+                    <ul class="footer__links-list">
+                        <li><a href="#engenharia" class="footer__link">Engenharia</a></li>
+                        <li><a href="#fluxo" class="footer__link">Como funciona</a></li>
+                        <li><a href="#sobre" class="footer__link">Acesso antecipado</a></li>
+                    </ul>
+                </div>
+                <div class="footer__links-column">
+                    <h5 class="footer__links-title">EMPRESA</h5>
+                    <ul class="footer__links-list">
+                        <li><a href="#arquitetura" class="footer__link">Sobre</a></li>
+                        <li><a href="privacidade.html" class="footer__link">Privacidade</a></li>
+                        <li><a href="#contato" class="footer__link">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer__links-column">
+                    <h5 class="footer__links-title">SOCIAL</h5>
+                    <ul class="footer__links-list">
+                        <li><a href="#" class="footer__link">Instagram</a></li>
+                        <li><a href="#" class="footer__link">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
