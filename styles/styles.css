@@ -1740,3 +1740,164 @@ body {
         height: 610px;
     }
 }
+
+/* ============================================================
+   POLISH LAYER — acabamento profissional (navbar branca, ritmo
+   de seções, cards, CTA, animações). Mantém o design system.
+   ============================================================ */
+:root {
+    --shadow-sm: 0 1px 2px rgba(20, 16, 50, .04), 0 4px 16px rgba(20, 16, 50, .04);
+    --shadow-md: 0 2px 4px rgba(20, 16, 50, .04), 0 16px 40px rgba(20, 16, 50, .08);
+    --header-h: 72px;
+}
+html { scroll-padding-top: calc(var(--header-h) + 12px); }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+::selection { background: rgba(110, 68, 255, .18); }
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: 6px; }
+
+/* Linhas animadas ficam só no topo, com fade suave */
+.bg-lines { height: 1100px; -webkit-mask-image: linear-gradient(#000 55%, transparent); mask-image: linear-gradient(#000 55%, transparent); }
+.bg-lines svg { min-height: 0; }
+
+/* --- Navbar: faixa branca sólida atrás do menu, fixa no topo --- */
+.header {
+    position: sticky; top: 0; z-index: 100;
+    padding: 0; min-height: var(--header-h);
+    background: #FFFFFF;
+    border-bottom: 1px solid var(--color-border);
+    transition: box-shadow .3s ease;
+}
+.header.is-scrolled { box-shadow: 0 10px 30px rgba(20, 16, 50, .07); }
+.header__content { min-height: var(--header-h); gap: 24px; }
+.header__actions { display: flex; align-items: center; gap: 10px; }
+.header .btn { padding: 10px 22px; font-size: .9rem; }
+.nav__list { gap: 4px; }
+.nav__link { padding: 8px 14px; border-radius: 9999px; font-size: .9rem; }
+.nav__link:hover { background: rgba(110, 68, 255, .08); }
+.nav-toggle {
+    display: none; width: 42px; height: 42px; border-radius: 12px; cursor: pointer;
+    border: 1px solid var(--color-border); background: #fff; color: var(--color-text);
+    align-items: center; justify-content: center;
+}
+
+/* --- Hero --- */
+.hero { padding: 72px 0 120px; overflow: hidden; }
+.hero::before {
+    content: ""; position: absolute; z-index: 0; pointer-events: none;
+    width: 720px; height: 720px; right: -120px; top: -60px; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(110, 68, 255, .20), rgba(110, 68, 255, 0));
+}
+.hero__title { font-size: clamp(2.4rem, 4.6vw, 3.9rem); line-height: 1.1; text-wrap: balance; }
+.hero__description { font-size: 1.15rem; }
+.email-form__wrapper { padding: 5px 5px 5px 22px; box-shadow: var(--shadow-md); }
+.email-form__wrapper .btn { padding: 12px 26px; }
+.status-bubble { box-shadow: var(--shadow-sm); }
+
+/* --- Faixa de números (sobrepõe o fim do hero) --- */
+.stats { position: relative; z-index: 3; margin-top: -64px; }
+.stats__grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    background: #fff; border: 1px solid var(--color-border);
+    border-radius: 24px; box-shadow: var(--shadow-md); padding: 8px;
+}
+.stats__item { padding: 26px 24px; text-align: center; position: relative; }
+.stats__item + .stats__item::before {
+    content: ""; position: absolute; left: 0; top: 24%; height: 52%; width: 1px; background: var(--color-border);
+}
+.stats__value { font-family: var(--font-family-serif); font-size: 2.3rem; font-weight: 500; color: var(--color-primary); line-height: 1.1; letter-spacing: -.02em; }
+.stats__label { margin-top: 6px; font-size: .88rem; color: var(--color-text-muted); line-height: 1.4; }
+
+/* --- Ritmo das seções: alternância branco / cinza --- */
+.pain-section, .philosophy-section, .bioethics-section, .engineering-section,
+.maturity-section, .impact-section, .how-it-works, .find-your-way, .all-the-flow { padding: 110px 0; }
+.pain-section { padding-top: 130px; }
+.bioethics-section, .impact-section, .find-your-way { background: #FFFFFF; border-block: 1px solid var(--color-border); }
+.section-title { font-size: clamp(1.9rem, 3.2vw, 2.7rem); line-height: 1.2; letter-spacing: -.015em; text-wrap: balance; }
+.section-title--centered { max-width: 840px; margin-inline: auto; }
+.section-description { font-size: 1.08rem; }
+.section-description--centered { max-width: 660px; }
+.tagline-badge { background: rgba(110, 68, 255, .07); border-color: rgba(110, 68, 255, .16); box-shadow: none; text-transform: uppercase; font-size: .74rem; letter-spacing: .08em; }
+.bioethics-section .card, .impact-section .card { background: var(--color-light-bg); }
+
+/* --- Cards --- */
+.card { box-shadow: var(--shadow-sm); border-radius: 22px; padding: 34px; }
+.card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(110, 68, 255, .22); }
+.pain-card { border-top: 3px solid transparent; }
+.pain-card:hover { border-top-color: var(--color-primary); }
+.pain-card .solution-box { margin-top: auto; }
+.pain-card .card__description { margin-bottom: 18px; }
+.icon-badge { width: 50px; height: 50px; border-radius: 16px; }
+.icon-card:hover .icon-badge { transform: scale(1.06) rotate(-3deg); }
+.icon-badge { transition: transform .3s ease; }
+.code-box { background: rgba(110, 68, 255, .05); border-color: rgba(110, 68, 255, .12); color: #4A3A8F; }
+.dual-card { box-shadow: var(--shadow-sm); transition: transform .3s ease, box-shadow .3s ease; }
+.dual-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.alert-box { box-shadow: var(--shadow-sm); background: #fff; }
+.maturity-table-wrapper { box-shadow: var(--shadow-sm); }
+.maturity-table tbody tr { transition: background .2s ease; }
+.maturity-table tbody tr:hover { background: rgba(110, 68, 255, .035); }
+.flow-step { position: relative; }
+.flow-step__number { background: var(--color-primary); color: #fff; box-shadow: 0 6px 16px var(--color-primary-glow); }
+.mock-ui { box-shadow: var(--shadow-md); }
+.btn-flow { box-shadow: var(--shadow-sm); }
+
+/* --- CTA final em painel de destaque --- */
+.final-cta { padding: 110px 0 120px; }
+.final-cta__content {
+    max-width: 880px; padding: 72px 48px; border-radius: 32px; position: relative; overflow: hidden;
+    background: radial-gradient(circle at 15% 0%, #8566FF 0%, rgba(133, 102, 255, 0) 55%), linear-gradient(135deg, #4B2BD6, #2B1A86);
+    box-shadow: 0 30px 70px -20px rgba(75, 43, 214, .55);
+}
+.final-cta .section-title { color: #fff; }
+.final-cta .tagline-badge { background: rgba(255, 255, 255, .14); color: #fff; border-color: rgba(255, 255, 255, .28); }
+.final-cta .tagline-badge__dot { background: #fff; }
+.final-cta .email-form__wrapper { margin-inline: auto; width: 100%; }
+.final-cta .btn--primary { box-shadow: none; }
+.final-cta__note { color: rgba(255, 255, 255, .75); }
+
+/* --- Footer --- */
+.footer { padding-top: 80px; }
+.footer__link:hover { color: #fff; }
+.footer__bottom {
+    margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .08);
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    font-size: .82rem; color: #6B7280;
+}
+
+/* --- Animação de entrada (ativada via JS; sem JS tudo aparece) --- */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1); }
+.reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .wave-line, .login-btn-entrar:hover { animation: none; }
+    html { scroll-behavior: auto; }
+}
+
+/* --- Responsivo --- */
+@media (max-width: 960px) {
+    :root { --header-h: 64px; }
+    .nav-toggle { display: inline-flex; }
+    .nav {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        background: #fff; border-bottom: 1px solid var(--color-border);
+        padding: 12px 24px 20px; box-shadow: 0 20px 30px rgba(20, 16, 50, .08);
+    }
+    .nav.is-open { display: block; }
+    .nav__list { display: flex; flex-direction: column; align-items: stretch; gap: 2px; }
+    .nav__link { display: block; padding: 12px 14px; font-size: 1rem; }
+    .hero { padding: 48px 0 110px; }
+    .stats__grid { grid-template-columns: 1fr 1fr; }
+    .stats__item:nth-child(3)::before { display: none; }
+    .section-title--centered, .section-description--centered { padding-inline: 4px; }
+}
+@media (max-width: 600px) {
+    .header .btn { padding: 9px 16px; }
+    .pain-section, .philosophy-section, .bioethics-section, .engineering-section,
+    .maturity-section, .impact-section, .how-it-works, .find-your-way, .all-the-flow { padding: 80px 0; }
+    .stats__grid { grid-template-columns: 1fr; }
+    .stats__item + .stats__item::before { left: 20%; top: 0; width: 60%; height: 1px; }
+    .final-cta__content { padding: 52px 22px; border-radius: 26px; }
+    .email-form__wrapper { flex-direction: column; border-radius: 22px; padding: 12px; gap: 8px; align-items: stretch; }
+    .email-form__input { padding: 10px 8px; }
+    .email-form__wrapper .btn { width: 100%; }
+}

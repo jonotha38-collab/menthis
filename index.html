@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentis - Co-piloto Clínico</title>
+    <title>Mentis — Co-piloto Clínico para Psicólogos</title>
+    <meta name="description" content="O co-piloto clínico que organiza prontuários, transcreve sessões e recupera o histórico do paciente. Acesso antecipado, LGPD e privacidade por arquitetura.">
+    <meta name="theme-color" content="#FFFFFF">
     <!-- Favicon (Ícone da aba do navegador) -->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon.png">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="assets/js/main.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
@@ -41,7 +44,10 @@
                     <li class="nav__item"><a href="#maturidade" class="nav__link">Maturidade</a></li>
                 </ul>
             </nav>
-            <button class="btn btn--primary">Pedir acesso</button>
+            <div class="header__actions">
+                <a href="#sobre" class="btn btn--primary">Pedir acesso</a>
+                <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+            </div>
         </div>
     </header>
 
@@ -51,7 +57,7 @@
                 <div class="status-bubble status-bubble--purple">
                     <span class="status-bubble__dot"></span> Em fase de acesso antecipado
                 </div>
-                <h1 class="hero__title">Seja um dos primeiros a usar o Mentis</h1>
+                <h1 class="hero__title">Seja um dos primeiros a usar o <em class="text-accent">Mentis</em></h1>
                 <p class="hero__description">
                     O co-piloto clínico que organiza prontuários, transcreve sessões e recupera o histórico do paciente — para você ter mais tempo para a escuta.
                 </p>
@@ -143,6 +149,17 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats" aria-label="Mentis em números">
+        <div class="container">
+            <div class="stats__grid">
+                <div class="stats__item"><div class="stats__value">~15s</div><p class="stats__label">para transcrever 60 min de sessão</p></div>
+                <div class="stats__item"><div class="stats__value">até 10h</div><p class="stats__label">economizadas por semana em burocracia</p></div>
+                <div class="stats__item"><div class="stats__value">400</div><p class="stats__label">palavras de Contexto Âncora por paciente</p></div>
+                <div class="stats__item"><div class="stats__value">AES-256</div><p class="stats__label">criptografia e conformidade com a LGPD</p></div>
             </div>
         </div>
     </section>
@@ -662,6 +679,10 @@
                     </ul>
                 </div>
             </div>
+        </div>
+        <div class="container footer__bottom">
+            <span>&copy; 2026 Mentis. Todos os direitos reservados.</span>
+            <span>Feito para a clínica brasileira.</span>
         </div>
     </footer>
 </body>
